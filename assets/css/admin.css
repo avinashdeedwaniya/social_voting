@@ -1,0 +1,45 @@
+
+/* Admin - Settings page */
+form#svOptionForm tr.customPostTr  td{
+    display: inline-block;
+}
+
+form#svOptionForm textarea {
+    width: 100%;
+    display: block;
+}
+
+form#svOptionForm #svTextEditor {
+    width: 100%;
+}
+
+ul#svTabs {
+    margin: 10px 0 30px 0;
+}
+
+ul#svTabs li {
+    display: inline-block;
+    padding: 8px 0px;
+    margin: 0;
+    background: #fff;
+    width: 19%;
+    text-align: center;
+    outline: none;
+}
+
+ul#svTabs li.ui-tabs-active {
+    background: #E0E0E0;
+}
+
+ul#svTabs li a {
+    outline: none;
+}
+
+ul#svTabs li.ui-tabs-active a {
+    color: #000;
+    outline: none;
+}
+
+ul#svTabs li a {
+    text-decoration: none;
+}

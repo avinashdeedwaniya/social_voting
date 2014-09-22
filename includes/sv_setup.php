@@ -131,7 +131,7 @@ add_filter( 'post_row_actions', 'remove_row_actions', 10, 2 );
 function remove_row_actions( $actions, $post )
 {
     if( get_post_type() === 'sv_voting' ){
-        unset( $actions['edit'] );
+        //unset( $actions['edit'] );
         unset( $actions['inline hide-if-no-js'] );
         unset( $actions['view'] );
 

@@ -7,9 +7,9 @@
 add_action('admin_menu', 'sv_create_menu');
 function sv_create_menu() {
     //create new top-level menu
-    add_submenu_page('edit.php?post_type=sv_voting','Social Voting Plugin Settings', 'Settings', 'administrator', 'sv_settings_page','register_svsettings');
+    add_submenu_page('edit.php?post_type=sv_voting','Social Voting Plugin Settings', 'Settings', 'administrator', 'sv_settings_page','sv_settings_page');
     //call register settings function
-    //add_action( 'admin_init', 'register_svsettings' );
+     add_action( 'admin_init', 'register_svsettings' );
 }
 
 //add admin.css to plugin option page
@@ -21,6 +21,8 @@ function sv_admin_init() {
 
 function register_svsettings() {
     //register our settings
+    register_setting( 'sv-settings-group', 'sv_before_post' );
+    register_setting( 'sv-settings-group', 'sv_after_post' );
     register_setting( 'sv-settings-group', 'activate_facebook_voting' );
 	register_setting( 'sv-settings-group', 'sv_error_message' );
 	register_setting( 'sv-settings-group', 'sv_already_voted_message' );
@@ -123,6 +125,16 @@ function sv_settings_page() {
                                 }
                             }
                               ?>
+                        </tr>
+                        <tr valign="top" class="customPostTr">
+                            <th scope="row">Select Position</th>
+                                <td width="50%" align="left">
+                                    <input type="checkbox" name="sv_before_post" id="sv_before_post" value="1" <?php checked( get_option('sv_before_post'), 1 ); ?> />Before Post Content
+                                </td>
+                                <td width="50%" align="left">
+                                    <input type="checkbox" name="sv_after_post" id="sv_after_post" value="1" <?php checked( get_option('sv_after_post'), 1 ); ?> />After Post Content
+                                </td>
+                            </th>
                         </tr>
                         <tr valign="top" class="customPostTr">
                             <th scope="row">Social Voting Button Text</th>

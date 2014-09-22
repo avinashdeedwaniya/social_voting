@@ -120,9 +120,15 @@ function get_active_social_media($type){
 function sv_voting_add( $content ) {
         if ( is_single() ) {
             $custom_content = '<div class="social_voting_add">'.sv_voting('',false).'</div>';
-            $content .= $custom_content;
-            $custom_content .= $content;
-            return $custom_content;
+            if(get_option('sv_before_post')){
+            	$content = $custom_content.$content;
+            }
+            if(get_option('sv_after_post')){
+            	$content = $content.$custom_content;
+            }
+             
+             
+            return $content;
         } else {
             return $content;
         }
